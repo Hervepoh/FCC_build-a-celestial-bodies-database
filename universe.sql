@@ -296,9 +296,9 @@ INSERT INTO public.moon VALUES (1, 'm01', '', false, false, NULL, NULL, NULL, 3)
 INSERT INTO public.moon VALUES (2, 'm02', '', false, false, NULL, NULL, NULL, 3);
 INSERT INTO public.moon VALUES (3, 'm03', '', false, false, NULL, NULL, NULL, 3);
 INSERT INTO public.moon VALUES (4, 'm04', '', false, false, NULL, NULL, NULL, 3);
-INSERT INTO public.moon VALUES (5, 'm05, '', false, false, NULL, NULL, NULL, 3);
-INSERT INTO public.moon VALUES (6, 'm06 '', false, false, NULL, NULL, NULL, 3);
-INSERT INTO public.moon VALUES (7, 'm07 '', false, false, NULL, NULL, NULL, 3);
+INSERT INTO public.moon VALUES (5, 'm05', '', false, false, NULL, NULL, NULL, 3);
+INSERT INTO public.moon VALUES (6, 'm06', '', false, false, NULL, NULL, NULL, 3);
+INSERT INTO public.moon VALUES (7, 'm07', '', false, false, NULL, NULL, NULL, 3);
 INSERT INTO public.moon VALUES (8, 'm08', '', false, false, NULL, NULL, NULL, 3);
 INSERT INTO public.moon VALUES (9, 'm09', '', false, false, NULL, NULL, NULL, 3);
 INSERT INTO public.moon VALUES (10, 'm10', '', false, false, NULL, NULL, NULL, 3);
