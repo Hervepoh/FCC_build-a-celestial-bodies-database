@@ -16,7 +16,10 @@ Commande to import a database
 >> psql -U postgres < universe.sql 
 ```
 
-
+psql command to log in and interact with the database. You can use it to just run a single command and exit. 
+```
+PSQL="psql -X --username=freecodecamp --dbname=students --no-align --tuples-only -c"
+```
 
 
 
