@@ -15,10 +15,20 @@ ALTER TABLE <table_name> ADD PRIMARY KEY(<column_name>);
 
 # ADD a composite primary key
 ```
-ALTER TABLE <table_name> ADD PRIMARY KEY(<column_name>, <column_name>);
+ALTER TABLE <table_name> ADD PRIMARY KEY(<column1_name>, <column2_name>);
 ```
 
 # ADD a foreign key
 ```
 ALTER TABLE students ADD FOREIGN KEY(<<column_name>>) REFERENCES <<table_name>>(<<column_name>>);
+```
+
+# TRUNCATE a table
+```
+TRUNCATE <table_name>;
+```
+
+# TRUNCATE multiple table
+```
+TRUNCATE <table1_name>,<table2_name>,<table2_name>;
 ```
