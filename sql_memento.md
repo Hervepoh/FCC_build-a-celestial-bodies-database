@@ -43,9 +43,9 @@ TRUNCATE <table1_name>,<table2_name>,<table2_name>;
 DROP DATABASE <database_name>;
 ```
 
-# LIKE , ILIKE , NOT LIKE , NOT ILIKE # ORDER
+# LIKE , ILIKE , NOT LIKE , NOT ILIKE # ORDER #LIMT
 ```
-SELECT * FROM <table_name> WHERE <column_name> LIKE <pattern> ORDER BY <column_1>[DESC|ASC], [<column_2>[DESC|ASC]];  
+SELECT * FROM <table_name> WHERE <column_name> LIKE <pattern> ORDER BY <column_1>[DESC|ASC], [<column_2>[DESC|ASC]] LIMIT <number_of_tuple>;  
 pattern   _
 pattern   %
 ```
