@@ -32,3 +32,17 @@ TRUNCATE <table_name>;
 ```
 TRUNCATE <table1_name>,<table2_name>,<table2_name>;
 ```
+
+# DROP a database
+```
+DROP DATABASE <database_name>;
+```
+
+# LIKE , ILIKE , NOT LIKE , NOT ILIKE
+```
+SELECT * FROM <table_name> WHERE <column_name> LIKE <pattern> ;  
+pattern   _
+pattern   %
+
+```
+
