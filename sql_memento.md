@@ -38,11 +38,12 @@ TRUNCATE <table1_name>,<table2_name>,<table2_name>;
 DROP DATABASE <database_name>;
 ```
 
-# LIKE , ILIKE , NOT LIKE , NOT ILIKE
+# LIKE , ILIKE , NOT LIKE , NOT ILIKE # ORDER
 ```
-SELECT * FROM <table_name> WHERE <column_name> LIKE <pattern> ;  
+SELECT * FROM <table_name> WHERE <column_name> LIKE <pattern> ORDER BY <column_1>[DESC|ASC], [<column_2>[DESC|ASC]];  
 pattern   _
 pattern   %
-
 ```
+
+
 
