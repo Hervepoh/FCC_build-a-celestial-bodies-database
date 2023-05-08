@@ -23,6 +23,11 @@ ALTER TABLE <table_name> ADD PRIMARY KEY(<column1_name>, <column2_name>);
 ALTER TABLE students ADD FOREIGN KEY(<<column_name>>) REFERENCES <<table_name>>(<<column_name>>);
 ```
 
+# RENAME table
+```
+ALTER TABLE <table_name> RENAME TO <table_name>;
+```
+
 # TRUNCATE a table
 ```
 TRUNCATE <table_name>;
