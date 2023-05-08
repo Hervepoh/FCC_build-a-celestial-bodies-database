@@ -49,6 +49,6 @@ SELECT * FROM <table_name> WHERE <column_name> LIKE <pattern> ORDER BY <column_1
 pattern   _
 pattern   %
 ```
-
+# CEIL , FLOOR , ROUND , SUM ,AVG , MAX , MIN 
 
 
