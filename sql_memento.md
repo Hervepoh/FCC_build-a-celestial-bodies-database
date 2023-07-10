@@ -39,6 +39,11 @@ ALTER TABLE students ADD FOREIGN KEY(<<column_name>>) REFERENCES <<table_name>>(
 ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);
 ```
 
+# DROP a constraint
+```
+ALTER TABLE students FROP CONSTRAINT <<constraint_name>> ;
+```
+
 # RENAME table
 ```
 ALTER TABLE <table_name> RENAME TO <new_table_name>;
