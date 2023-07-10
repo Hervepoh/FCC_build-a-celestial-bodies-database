@@ -3,6 +3,17 @@
 CREATE DATABASE <database_name>;
 ```
 
+# RENAME a database
+```
+ALTER DATABASE <database_name> RENAME TO <new_database_name>;
+```
+
+# DROP a database
+```
+DROP DATABASE <database_name>;
+```
+
+
 # CREATE an empty table
 ```
 CREATE TABLE <table_name>();
@@ -25,7 +36,7 @@ ALTER TABLE students ADD FOREIGN KEY(<<column_name>>) REFERENCES <<table_name>>(
 
 # RENAME table
 ```
-ALTER TABLE <table_name> RENAME TO <table_name>;
+ALTER TABLE <table_name> RENAME TO <new_table_name>;
 ```
 
 # TRUNCATE a table
@@ -36,11 +47,6 @@ TRUNCATE <table_name>;
 # TRUNCATE multiple table
 ```
 TRUNCATE <table1_name>,<table2_name>,<table2_name>;
-```
-
-# DROP a database
-```
-DROP DATABASE <database_name>;
 ```
 
 # LIKE , ILIKE , NOT LIKE , NOT ILIKE # ORDER #LIMT
