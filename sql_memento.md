@@ -29,9 +29,14 @@ ALTER TABLE <table_name> ADD PRIMARY KEY(<column_name>);
 ALTER TABLE <table_name> ADD PRIMARY KEY(<column1_name>, <column2_name>);
 ```
 
-# ADD a foreign key
+# ADD a foreign key using an existing Column 
 ```
 ALTER TABLE students ADD FOREIGN KEY(<<column_name>>) REFERENCES <<table_name>>(<<column_name>>);
+```
+
+# ADD a foreign key 
+```
+ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);
 ```
 
 # RENAME table
