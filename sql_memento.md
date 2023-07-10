@@ -36,7 +36,12 @@ ALTER TABLE students ADD FOREIGN KEY(<<column_name>>) REFERENCES <<table_name>>(
 
 # ADD a foreign key 
 ```
-ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);
+ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES <<referenced_table_name>>(<<referenced_column_name>>);
+```
+
+# ADD a unique constraint 
+```
+ALTER TABLE table_name ADD UNIQUE(<<column_name>>);
 ```
 
 # DROP a constraint
