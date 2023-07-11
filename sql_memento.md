@@ -14,9 +14,14 @@ DROP DATABASE <database_name>;
 ```
 
 
-# CREATE an empty table
+# CREATE a table
+an empty table
 ```
 CREATE TABLE <table_name>();
+```
+a table with column
+```
+CREATE TABLE table_name(column_name DATATYPE CONSTRAINTS);
 ```
 
 # ADD a primary key
