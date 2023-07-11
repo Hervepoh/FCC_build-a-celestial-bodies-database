@@ -57,6 +57,10 @@ RENAME A COLUMN
 ```
 ALTER TABLE more_info RENAME COLUMN height TO height_in_cm
 ```
+Full commande to create a COLUMN 
+```
+ALTER TABLE table_name ADD COLUMN column_name DATATYPE CONSTRAINT REFERENCES referenced_table_name(referenced_column_name);
+```
 
 # DROP a constraint
 ```
