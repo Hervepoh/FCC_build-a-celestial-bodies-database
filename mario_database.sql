@@ -44,6 +44,50 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- Name: actions; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.actions (
+    action_id integer NOT NULL,
+    action character varying(20) NOT NULL
+);
+
+
+ALTER TABLE public.actions OWNER TO freecodecamp;
+
+--
+-- Name: actions_action_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.actions_action_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.actions_action_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: actions_action_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.actions_action_id_seq OWNED BY public.actions.action_id;
+
+
+--
+-- Name: character_actions; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.character_actions (
+);
+
+
+ALTER TABLE public.character_actions OWNER TO freecodecamp;
+
+--
 -- Name: characters; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
@@ -122,7 +166,8 @@ ALTER SEQUENCE public.more_info_more_info_id_seq OWNED BY public.more_info.more_
 
 CREATE TABLE public.sounds (
     sound_id integer NOT NULL,
-    filename character varying(40) NOT NULL
+    filename character varying(40) NOT NULL,
+    character_id integer NOT NULL
 );
 
 
@@ -151,6 +196,13 @@ ALTER SEQUENCE public.sound_sound_id_seq OWNED BY public.sounds.sound_id;
 
 
 --
+-- Name: actions action_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.actions ALTER COLUMN action_id SET DEFAULT nextval('public.actions_action_id_seq'::regclass);
+
+
+--
 -- Name: characters character_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
@@ -169,6 +221,21 @@ ALTER TABLE ONLY public.more_info ALTER COLUMN more_info_id SET DEFAULT nextval(
 --
 
 ALTER TABLE ONLY public.sounds ALTER COLUMN sound_id SET DEFAULT nextval('public.sound_sound_id_seq'::regclass);
+
+
+--
+-- Data for Name: actions; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+INSERT INTO public.actions VALUES (1, 'run');
+INSERT INTO public.actions VALUES (2, 'jump');
+INSERT INTO public.actions VALUES (3, 'duck');
+
+
+--
+-- Data for Name: character_actions; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
 
 
 --
@@ -201,6 +268,22 @@ INSERT INTO public.more_info VALUES (7, '1990-04-13', 162, 59.1, 7);
 -- Data for Name: sounds; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.sounds VALUES (1, 'its-a-me.wav', 1);
+INSERT INTO public.sounds VALUES (2, 'yipee.wav', 1);
+INSERT INTO public.sounds VALUES (3, 'yippee.wav', 1);
+INSERT INTO public.sounds VALUES (4, 'ha-ha.wav', 2);
+INSERT INTO public.sounds VALUES (5, 'oh-yeah.wav', 2);
+INSERT INTO public.sounds VALUES (6, 'yay.wav', 3);
+INSERT INTO public.sounds VALUES (7, 'woo-hoo.wav', 3);
+INSERT INTO public.sounds VALUES (8, 'mm-hmm.wav', 3);
+INSERT INTO public.sounds VALUES (9, 'yahoo.wav', 1);
+
+
+--
+-- Name: actions_action_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.actions_action_id_seq', 3, true);
 
 
 --
@@ -221,7 +304,23 @@ SELECT pg_catalog.setval('public.more_info_more_info_id_seq', 7, true);
 -- Name: sound_sound_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.sound_sound_id_seq', 1, false);
+SELECT pg_catalog.setval('public.sound_sound_id_seq', 9, true);
+
+
+--
+-- Name: actions actions_action_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.actions
+    ADD CONSTRAINT actions_action_key UNIQUE (action);
+
+
+--
+-- Name: actions actions_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.actions
+    ADD CONSTRAINT actions_pkey PRIMARY KEY (action_id);
 
 
 --
@@ -270,6 +369,14 @@ ALTER TABLE ONLY public.sounds
 
 ALTER TABLE ONLY public.more_info
     ADD CONSTRAINT more_info_character_id_fkey FOREIGN KEY (character_id) REFERENCES public.characters(character_id);
+
+
+--
+-- Name: sounds sounds_character_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.sounds
+    ADD CONSTRAINT sounds_character_id_fkey FOREIGN KEY (character_id) REFERENCES public.characters(character_id);
 
 
 --
