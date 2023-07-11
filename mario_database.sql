@@ -86,8 +86,8 @@ ALTER SEQUENCE public.characters_character_id_seq OWNED BY public.characters.cha
 CREATE TABLE public.more_info (
     more_info_id integer NOT NULL,
     birthday date,
-    height integer,
-    weight numeric(4,1),
+    height_in_cm integer,
+    weight_in_kg numeric(4,1),
     character_id integer NOT NULL
 );
 
@@ -117,6 +117,40 @@ ALTER SEQUENCE public.more_info_more_info_id_seq OWNED BY public.more_info.more_
 
 
 --
+-- Name: sounds; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.sounds (
+    sound_id integer NOT NULL,
+    filename character varying(40) NOT NULL
+);
+
+
+ALTER TABLE public.sounds OWNER TO freecodecamp;
+
+--
+-- Name: sound_sound_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.sound_sound_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.sound_sound_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: sound_sound_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.sound_sound_id_seq OWNED BY public.sounds.sound_id;
+
+
+--
 -- Name: characters character_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
@@ -128,6 +162,13 @@ ALTER TABLE ONLY public.characters ALTER COLUMN character_id SET DEFAULT nextval
 --
 
 ALTER TABLE ONLY public.more_info ALTER COLUMN more_info_id SET DEFAULT nextval('public.more_info_more_info_id_seq'::regclass);
+
+
+--
+-- Name: sounds sound_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.sounds ALTER COLUMN sound_id SET DEFAULT nextval('public.sound_sound_id_seq'::regclass);
 
 
 --
@@ -152,6 +193,14 @@ INSERT INTO public.more_info VALUES (2, '1983-07-14', 175, 48.8, 2);
 INSERT INTO public.more_info VALUES (3, '1985-10-18', 173, 52.2, 3);
 INSERT INTO public.more_info VALUES (4, '1950-01-10', 66, 35.6, 4);
 INSERT INTO public.more_info VALUES (5, '1990-10-29', 258, 300.0, 5);
+INSERT INTO public.more_info VALUES (6, '1989-07-31', NULL, NULL, 6);
+INSERT INTO public.more_info VALUES (7, '1990-04-13', 162, 59.1, 7);
+
+
+--
+-- Data for Name: sounds; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
 
 
 --
@@ -165,7 +214,14 @@ SELECT pg_catalog.setval('public.characters_character_id_seq', 7, true);
 -- Name: more_info_more_info_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.more_info_more_info_id_seq', 5, true);
+SELECT pg_catalog.setval('public.more_info_more_info_id_seq', 7, true);
+
+
+--
+-- Name: sound_sound_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.sound_sound_id_seq', 1, false);
 
 
 --
@@ -190,6 +246,22 @@ ALTER TABLE ONLY public.more_info
 
 ALTER TABLE ONLY public.more_info
     ADD CONSTRAINT more_info_pkey PRIMARY KEY (more_info_id);
+
+
+--
+-- Name: sounds sound_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.sounds
+    ADD CONSTRAINT sound_pkey PRIMARY KEY (sound_id);
+
+
+--
+-- Name: sounds sounds_filename_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.sounds
+    ADD CONSTRAINT sounds_filename_key UNIQUE (filename);
 
 
 --
