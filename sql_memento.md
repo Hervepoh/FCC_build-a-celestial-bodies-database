@@ -48,6 +48,10 @@ ALTER TABLE table_name ADD UNIQUE(<<column_name>>);
 ```
 ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL;
 ```
+RENAME A COLUMN 
+```
+ALTER TABLE more_info RENAME COLUMN height TO height_in_cm
+```
 
 # DROP a constraint
 ```
