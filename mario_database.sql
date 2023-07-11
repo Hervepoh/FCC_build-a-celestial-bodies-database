@@ -82,6 +82,8 @@ ALTER SEQUENCE public.actions_action_id_seq OWNED BY public.actions.action_id;
 --
 
 CREATE TABLE public.character_actions (
+    character_id integer NOT NULL,
+    action_id integer NOT NULL
 );
 
 
@@ -324,6 +326,14 @@ ALTER TABLE ONLY public.actions
 
 
 --
+-- Name: character_actions character_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.character_actions
+    ADD CONSTRAINT character_actions_pkey PRIMARY KEY (character_id, action_id);
+
+
+--
 -- Name: characters characters_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
@@ -361,6 +371,22 @@ ALTER TABLE ONLY public.sounds
 
 ALTER TABLE ONLY public.sounds
     ADD CONSTRAINT sounds_filename_key UNIQUE (filename);
+
+
+--
+-- Name: character_actions character_actions_action_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.character_actions
+    ADD CONSTRAINT character_actions_action_id_fkey FOREIGN KEY (action_id) REFERENCES public.actions(action_id);
+
+
+--
+-- Name: character_actions character_actions_character_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.character_actions
+    ADD CONSTRAINT character_actions_character_id_fkey FOREIGN KEY (character_id) REFERENCES public.characters(character_id);
 
 
 --
