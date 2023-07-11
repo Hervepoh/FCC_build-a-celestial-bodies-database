@@ -44,6 +44,11 @@ ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES <<referenced_t
 ALTER TABLE table_name ADD UNIQUE(<<column_name>>);
 ```
 
+# UPDATE a column
+```
+ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL;
+```
+
 # DROP a constraint
 ```
 ALTER TABLE students FROP CONSTRAINT <<constraint_name>> ;
