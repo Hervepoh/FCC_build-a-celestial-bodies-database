@@ -82,6 +82,11 @@ TRUNCATE <table_name>;
 TRUNCATE <table1_name>,<table2_name>,<table2_name>;
 ```
 
+# SELECT
+```
+SELECT columns FROM table_1 FULL JOIN table_2 ON table_1.primary_key_column = table_2.foreign_key_column;
+```
+
 # LIKE , ILIKE , NOT LIKE , NOT ILIKE # ORDER #LIMT
 ```
 SELECT * FROM <table_name> WHERE <column_name> LIKE <pattern> ORDER BY <column_1>[DESC|ASC], [<column_2>[DESC|ASC]] LIMIT <number_of_tuple>;  
